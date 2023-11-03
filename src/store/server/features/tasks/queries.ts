@@ -1,3 +1,5 @@
+'use client'
+
 import { useQuery } from 'react-query'
 
 export const GET_TASKS_KEY = 'tasks'
@@ -7,4 +9,4 @@ export const getTasks = async () => {
   return res.json()
 }
 
-export const useGetTasks = () => useQuery(GET_TASKS_KEY, getTasks)
+export const useGetTasks = () => useQuery({ queryKey: [GET_TASKS_KEY], queryFn: getTasks })
