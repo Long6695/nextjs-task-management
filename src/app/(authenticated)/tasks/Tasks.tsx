@@ -6,10 +6,11 @@ import React from 'react'
 
 const Tasks = () => {
   const { data } = useGetTasks()
-  console.log('data', data)
-  return <div>
-    <button onClick={() => signOut()}>Sign out</button>
-  </div>
+  return (
+    <div>
+      <button onClick={() => signOut()}>Sign out</button>
+    </div>
+  )
 }
 
 export default Tasks

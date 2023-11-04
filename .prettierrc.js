@@ -6,7 +6,7 @@ const config = {
   jsxSingleQuote: true,
   trailingComma: 'none',
   arrowParens: 'always',
-  endOfLine: 'auto',
+  endOfLine: 'auto'
 }
 
 module.exports = config

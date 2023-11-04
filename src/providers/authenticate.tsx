@@ -9,7 +9,7 @@ export const Authenticate = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname()
 
   useEffect(() => {
-    if(pathname === '/') return
+    if (pathname === '/') return
     switch (status) {
       case 'loading':
         break

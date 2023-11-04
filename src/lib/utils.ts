@@ -15,8 +15,8 @@ export const getQueryClient = cache(
           refetchOnMount: false,
           refetchOnWindowFocus: false,
           refetchOnReconnect: false,
-          retry: false,
-        },
-      },
+          retry: false
+        }
+      }
     })
 )
