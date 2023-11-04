@@ -50,7 +50,7 @@ async function refreshAccessToken(token: JWT) {
   }
 }
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   session: {
     strategy: 'jwt'
   },

@@ -1,9 +1,8 @@
 import { getQueryClient } from '@/lib/utils'
 import Hydrate from '@/providers/hydrate'
-import React from 'react'
-import { dehydrate } from 'react-query'
-import Tasks from './Tasks'
 import { GET_TASKS_KEY, getTasks } from '@/store/server/features/tasks/queries'
+import { dehydrate } from '@tanstack/react-query'
+import Tasks from './Tasks'
 
 const TasksPage = async () => {
   const queryClient = getQueryClient()

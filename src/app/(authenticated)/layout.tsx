@@ -3,8 +3,8 @@ import { useSession } from 'next-auth/react'
 import React from 'react'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const {status, data: session } = useSession()
-  if (status === 'loading' || status === 'authenticated') {
+  const { data: session } = useSession()
+  if (!session) {
     return <p>Loading...</p>
   }
   return <div>{children}</div>
