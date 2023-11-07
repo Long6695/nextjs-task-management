@@ -1,12 +1,18 @@
-import { getQueryClient } from '@/lib/utils'
-import React from 'react'
-import { QueryClientProvider } from 'react-query'
+'use client'
 
-const ReactQuery = ({ children }: { children: React.ReactNode }) => {
+import { getQueryClient } from '@/lib/utils'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import React from 'react'
+
+const ReactQueryProvider = ({ children }: { children: React.ReactNode }) => {
   const queryClient = getQueryClient()
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      {children}
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   )
 }
 
-export default ReactQuery
+export default ReactQueryProvider

@@ -1,8 +1,8 @@
 'use client'
+import { HydrationBoundary, HydrationBoundaryProps } from '@tanstack/react-query'
 
-import { HydrateProps, Hydrate as HydrationBoundary } from 'react-query'
-import React from 'react'
-
-export default function Hydrate(props: HydrateProps) {
+function Hydrate(props: HydrationBoundaryProps) {
   return <HydrationBoundary {...props} />
 }
+
+export default Hydrate
