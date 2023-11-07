@@ -1,13 +1,14 @@
 import Header from '@/components/header'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import React from 'react'
-import '../styles/global.css'
+import Sidebar from '@/components/side-bar'
 import Authenticate from '@/providers/authenticate'
 import ReactQueryProvider from '@/providers/react-query'
 import Session from '@/providers/session'
+import type { Metadata } from 'next'
+import { Plus_Jakarta_Sans } from 'next/font/google'
+import React from 'react'
+import '../styles/global.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
 export const metadata: Metadata = {
   title: 'Task Management',
@@ -17,12 +18,27 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={plusJakartaSans.className}>
         <Session>
           <ReactQueryProvider>
             <Authenticate>
-              <Header />
-              {children}
+              <div>
+                <div className='lg:hidden'>
+                  <Header />
+                </div>
+                <div className='lg:flex'>
+                  <div className='hidden lg:block'>
+                    <Sidebar />
+                  </div>
+                  <div className='lg:flex-1'>
+                    <div className='hidden lg:block'>
+                      <Header />
+                    </div>
+                    {children}
+                  </div>
+                  <div className='lg:max-w-sm'>Sidebar</div>
+                </div>
+              </div>
             </Authenticate>
           </ReactQueryProvider>
         </Session>

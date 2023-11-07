@@ -1,4 +1,5 @@
 'use client'
+import Header from '@/components/header'
 import { useSession } from 'next-auth/react'
 import React from 'react'
 

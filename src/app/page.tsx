@@ -1,7 +1,5 @@
-'use client'
-
-const AuthenticatedPage = () => {
+const Home = () => {
   return <div>Home</div>
 }
 
-export default AuthenticatedPage
+export default Home
