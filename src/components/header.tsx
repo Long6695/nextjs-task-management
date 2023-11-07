@@ -66,7 +66,7 @@ const Header = () => {
       </div>
       <nav className='flex justify-between items-center p-5 flex-1'>
         {session?.user?.name ? (
-          <div className='hidden lg:inline-block'>
+          <div className='hidden lg:inline-block space-y-4'>
             <h2 className='text-2xl font-semibold text-secondary-500'>{`Hi ${session?.user?.name}`}</h2>
             <p className='text-base font-medium text-secondary-400'>Let&apos;s finish your task today!</p>
           </div>
