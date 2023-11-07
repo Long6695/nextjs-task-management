@@ -1,5 +1,5 @@
 import Header from '@/components/header'
-import Sidebar from '@/components/side-bar'
+import Sidebar from '@/components/side-bar/side-bar'
 import Authenticate from '@/providers/authenticate'
 import ReactQueryProvider from '@/providers/react-query'
 import Session from '@/providers/session'
