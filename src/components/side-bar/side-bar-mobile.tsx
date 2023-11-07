@@ -8,7 +8,7 @@ import { AnimationControls, motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 
 const SidebarMobile = ({
   active,
@@ -30,23 +30,18 @@ const SidebarMobile = ({
 
   const pathname = usePathname()
   return (
-    <motion.div animate={controls} className={clsx('max-w-[250px] bg-primary-0 animate duration-300')}>
-      <ul className='p-4 space-y-8'>
+    <motion.div
+      animate={controls}
+      className='relative max-w-[250px] bg-primary-0 animate duration-300 p-4 h-screen overflow-y-auto'
+    >
+      <ul className='space-y-8'>
         {active && (
-          <Button
-            variant='ghost'
-            onClick={showLess}
-            className='top-0 -right-4 absolute text-2xl text-primary-500 cursor-pointer lg:block'
-          >
+          <Button variant='ghost' onClick={showLess} className='top-0 right-4 absolute text-primary-500 cursor-pointer'>
             <ArrowLeftSquareIcon />
           </Button>
         )}
         {!active && (
-          <Button
-            variant='ghost'
-            onClick={showMore}
-            className='top-0 -right-4 absolute text-2xl text-primary-500 cursor-pointer lg:block'
-          >
+          <Button variant='ghost' onClick={showMore} className='top-0 right-4 absolute text-primary-500 cursor-pointer'>
             <ArrowRightSquareIcon />
           </Button>
         )}
@@ -76,6 +71,16 @@ const SidebarMobile = ({
           )
         })}
       </ul>
+      <div className='relative'>
+        <div className='w-10 h-10 bg-secondary-500 absolute top-0 -translate-y-1/2 right-1/2 translate-x-1/2 rounded-full border-4 border-primary-0 shadow-sm text-xl text-primary-0 flex items-center justify-center font-semibold'>
+          ?
+        </div>
+        <div className='flex flex-col items-center justify-center text-center text-primary-0 bg-secondary-500 space-y-4 rounded-lg py-8'>
+          <p className='text-xs'>Help Center</p>
+          <p className='text-xs'>Having Trouble in Learning. Please contact us for more questions.</p>
+          <Button className='bg-primary-0 text-foreground'>Go to help center</Button>
+        </div>
+      </div>
     </motion.div>
   )
 }

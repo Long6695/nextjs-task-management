@@ -7,7 +7,7 @@ import { useAnimation } from 'framer-motion'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useState } from 'react'
 import Avatar from './avatar'
-import SidebarMobile from './side-bar-mobile'
+import SidebarMobile from './side-bar/side-bar-mobile'
 import { Button } from './ui/button'
 import { MenubarSeparator } from './ui/menubar'
 import { Separator } from './ui/separator'
@@ -26,7 +26,9 @@ const Header = () => {
       top: 0,
       bottom: 0,
       transition: { duration: 0.001 },
-      display: 'block'
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
     })
     controlText.start({
       opacity: 1,

@@ -8,12 +8,14 @@ import { motion, useAnimation } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 
 const Sidebar = () => {
   const [active, setActive] = useState(false)
   const controls = useAnimation()
   const controlText = useAnimation()
+  const controlHelp = useAnimation()
+
   const showMore = () => {
     controls.start({
       width: '250px',
@@ -23,6 +25,10 @@ const Sidebar = () => {
       opacity: 1,
       display: 'block',
       transition: { delay: 0.3 }
+    })
+    controlHelp.start({
+      opacity: 1,
+      display: 'block'
     })
 
     setActive(true)
@@ -39,6 +45,11 @@ const Sidebar = () => {
       display: 'none'
     })
 
+    controlHelp.start({
+      opacity: 0,
+      display: 'none'
+    })
+
     setActive(false)
   }
 
@@ -49,23 +60,20 @@ const Sidebar = () => {
 
   const pathname = usePathname()
   return (
-    <motion.div animate={controls} className={clsx('max-w-[250px] bg-primary-0 animate duration-300 relative')}>
-      <ul className='p-4 space-y-8'>
+    <motion.div
+      animate={controls}
+      className={clsx(
+        'max-w-[250px] bg-primary-0 animate duration-300 relative h-screen flex flex-col justify-between p-4'
+      )}
+    >
+      <ul className='space-y-8'>
         {active && (
-          <Button
-            variant='ghost'
-            onClick={showLess}
-            className='top-0 -right-4 absolute text-2xl text-primary-500 cursor-pointer lg:block'
-          >
+          <Button variant='ghost' onClick={showLess} className='top-0 right-4 absolute text-primary-500 cursor-pointer'>
             <ArrowLeftSquareIcon />
           </Button>
         )}
         {!active && (
-          <Button
-            variant='ghost'
-            onClick={showMore}
-            className='top-0 -right-4 absolute text-2xl text-primary-500 cursor-pointer lg:block'
-          >
+          <Button variant='ghost' onClick={showMore} className='top-0 right-4 absolute text-primary-500 cursor-pointer'>
             <ArrowRightSquareIcon />
           </Button>
         )}
@@ -95,6 +103,19 @@ const Sidebar = () => {
           )
         })}
       </ul>
+      <div className='relative'>
+        <div className='w-11 h-11 bg-secondary-500 absolute top-0 -translate-y-1/2 right-1/2 translate-x-1/2 rounded-full border-4 border-primary-0 shadow-sm text-xl text-primary-0 flex items-center justify-center font-semibold'>
+          ?
+        </div>
+        <motion.div
+          animate={controlHelp}
+          className='flex flex-col items-center justify-center text-center text-primary-0 bg-secondary-500 space-y-4 rounded-lg py-8'
+        >
+          <p className='text-sm'>Help Center</p>
+          <p className='text-sm'>Having Trouble in Learning. Please contact us for more questions.</p>
+          <Button className='bg-primary-0 text-foreground'>Go to help center</Button>
+        </motion.div>
+      </div>
     </motion.div>
   )
 }
