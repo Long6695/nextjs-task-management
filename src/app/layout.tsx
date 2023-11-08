@@ -7,6 +7,8 @@ import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import React from 'react'
 import '../styles/global.css'
+import 'pure-react-carousel/dist/react-carousel.es.css'
+import RightSidebar from '@/components/over-view/right-side-bar'
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
@@ -23,20 +25,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ReactQueryProvider>
             <Authenticate>
               <div>
-                <div className='lg:hidden'>
+                <div className='xl:hidden'>
                   <Header />
                 </div>
-                <div className='lg:flex'>
-                  <div className='hidden lg:block'>
+                <div className='xl:flex'>
+                  <div className='hidden xl:block'>
                     <Sidebar />
                   </div>
-                  <div className='lg:flex-1'>
-                    <div className='hidden lg:block'>
+                  <div className='xl:flex-1 overflow-auto'>
+                    <div className='hidden xl:block'>
                       <Header />
                     </div>
                     {children}
                   </div>
-                  <div className='lg:max-w-sm'>Sidebar</div>
+                  <div className='xl:w-96 p-4'>
+                    <RightSidebar />
+                  </div>
                 </div>
               </div>
             </Authenticate>
