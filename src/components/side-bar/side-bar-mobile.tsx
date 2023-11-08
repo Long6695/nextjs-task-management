@@ -32,7 +32,7 @@ const SidebarMobile = ({
   return (
     <motion.div
       animate={controls}
-      className='relative max-w-[250px] bg-primary-0 animate duration-300 p-4 h-screen overflow-y-auto'
+      className='relative max-w-[250px] bg-primary-0 animate duration-300 p-4 h-screen overflow-y-auto z-50'
     >
       <ul className='space-y-8'>
         {active && (

@@ -55,7 +55,7 @@ const Header = () => {
   }
   return (
     <>
-      <div className='lg:hidden'>
+      <div className='xl:hidden'>
         <SidebarMobile
           controls={controls}
           controlText={controlText}
@@ -66,18 +66,18 @@ const Header = () => {
       </div>
       <nav className='flex justify-between items-center p-5 flex-1'>
         {session?.user?.name ? (
-          <div className='hidden lg:inline-block space-y-4'>
+          <div className='hidden xl:inline-block space-y-4'>
             <h2 className='text-2xl font-semibold text-secondary-500'>{`Hi ${session?.user?.name}`}</h2>
             <p className='text-base font-medium text-secondary-400'>Let&apos;s finish your task today!</p>
           </div>
         ) : (
-          <div className='hidden lg:block lg:space-y-2'>
+          <div className='hidden xl:block xl:space-y-2'>
             <Skeleton className='h-6 w-[250px]' />
             <Skeleton className='h-6 w-[200px]' />
           </div>
         )}
 
-        <Button variant='ghost' className='border-gray-300 border rounded-full p-2 lg:hidden' onClick={showMore}>
+        <Button variant='ghost' className='border-gray-300 border rounded-full p-2 xl:hidden' onClick={showMore}>
           <MenuIcon />
         </Button>
         <div className='flex items-center justify-end space-x-4 flex-1'>
@@ -109,7 +109,7 @@ const Header = () => {
           {status === 'unauthenticated' && <Button onClick={() => signIn('google')}>Sign in</Button>}
         </div>
       </nav>
-      <Separator className='border-b-2 border-secondary-100 lg:hidden' />
+      <Separator className='border-b-2 border-secondary-100 xl:hidden' />
     </>
   )
 }
