@@ -11,6 +11,7 @@ import useWindowDimensions from '@/hooks/useWindowDimensions'
 
 const RightSidebar = () => {
   const { isDesktop } = useWindowDimensions()
+
   return (
     <div className='space-y-4'>
       <div className='bg-primary-0 rounded-lg shadow-lg p-2'>
